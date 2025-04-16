@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Narmella🍫</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-divs">
+                <div><a href="#">Home</a></div>
+                <div><a href="./about.html">About</a></div>
+                <div class="search-popup hidden">
+                    <span class="close-search-btn">&times;</span> 
+                    <input type="text" id="search-input" placeholder="Search for items..." />
+                    <button id="search-btn">Search</button>
+                    <div class="search-results"></div> 
+                    <div class="no-result" style="display: none; text-align: center; margin-top: 10px; color: red;">
+                        Nəticə tapılmadı
+                    </div>
+                </div>
+                <div class="no-result" style="display: none; text-align: center; margin-top: 20px; color: red;">
+                    Nəticə tapılmadı
+                </div>
+                <div class="favorites-popup hidden">
+                    <div class="favorites-header">
+                        <h3>Sevimlilər</h3>
+                        <span class="close-btn">&times;</span> 
+                    </div>
+                    <ul id="favorites-list"></ul>
+                </div>
+                <div>
+                    <img class="search-img" src="https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-29.png" alt=""> 
+                    <img class="account-img" src="https://cdn.iconscout.com/icon/free/png-256/free-account-icon-download-in-svg-png-gif-file-formats--profile-user-avatar-travel-pack-holidays-icons-1538680.png?f=webp" alt="">  
+                    <img class="wish-img" src="https://static.vecteezy.com/system/resources/thumbnails/035/262/995/small/white-heart-for-text-decoration-on-transparent-background-png.png" alt="">   
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>  
+        <section class="section1">
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="https://preview.colorlib.com/theme/pizza/images/bg_1.jpg.webp" class="d-block w-100" alt="First slide" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h1>BOLD & INTENSE</h1>
+                      <p>Unveil the deep, rich secrets of our premium dark chocolates. Each bite promises a decadent journey, whisking you away to a world of robust flavors. Indulge in the art of cacao's most elegant form.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://preview.colorlib.com/theme/pizza/images/bg_3.jpg.webp" class="d-block w-100" alt="Second slide" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h1>CREAMY & COMFORTING</h1>
+                      <p>Revel in the creamy delight of our milk chocolates, where smooth meets sweet. Our recipes treasure the delicate balance of silky chocolate and milk, delivering comfort in every piece. It's a classic pleasure, reimagined.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://www.rmcf.com/cdn/shop/files/HeroBanner_DarkChocolate-main.png?v=1700154231&width=1880" class="d-block w-100" alt="Third slide" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h1>SMOOTH & SENSUAL</h1>
+                      <p>Experience the silky embrace of our handcrafted milk chocolates. Each piece melts gently on your tongue, releasing layers of sweet, creamy delight. Let every bite be a moment of pure bliss.</p>
+                    </div>
+                  </div>
+                </div>
+              
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </section>
+        <section class="section2">
+            <div class="sec2-collection">
+                <h1>Featured collections</h1>
+            </div>
+            <div class="menu-div">
+                <a href="#" class="seasonal-btn">Seasonal</a>
+                <a href="#" class="best-sellers-btn">Best sellers</a>
+                <a href="#" class="gifting-btn">Corporate gifting</a>
+            </div>
+            <div class="img-div">
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="seasonal" src="https://www.rmcf.com/cdn/shop/files/SpringEaster2024-464copy.jpg?v=1709649181" alt="Seasonal Image 1">
+                    <p class="item-name">Caramel Bonbon</p>
+                    <p class="item-price">$12.99</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="seasonal" src="https://www.rmcf.com/cdn/shop/files/Birthday_Box.jpg?v=1720532259" alt="Seasonal Image 2">
+                    <p class="item-name">Birthday Box</p>
+                    <p class="item-price">$15.49</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="seasonal" src="https://www.rmcf.com/cdn/shop/files/SpringEaster2024-488copy.jpg?v=1709649513" alt="Seasonal Image 3">
+                    <p class="item-name">Spring Easter</p>
+                    <p class="item-price">$10.99</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="seasonal" src="https://www.rmcf.com/cdn/shop/files/BearsBucketsToffee_Tower3.png?v=1700515986" alt="Seasonal Image 4">
+                    <p class="item-name">Toffee Tower</p>
+                    <p class="item-price">$18.99</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="hidden best-sellers" src="https://www.rmcf.com/cdn/shop/files/SpringEaster2024-462copy.jpg?v=1709649068" alt="Best Sellers Image 1">
+                    <p class="item-name">Best Seller 1</p>
+                    <p class="item-price">$14.99</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="hidden best-sellers" src="https://www.rmcf.com/cdn/shop/files/MiniTruffleBox_1_05ff0678-94f7-495e-becd-24dafeb756ca.jpg?v=1722610514" alt="Best Sellers Image 2">
+                    <p class="item-name">Mini Truffle Box</p>
+                    <p class="item-price">$19.49</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="hidden gifting" src="https://www.rmcf.com/cdn/shop/files/IndulgenceOreoSq75.jpg?v=1739913343" alt="Gifting Image 1">
+                    <p class="item-name">Indulgence Oreo</p>
+                    <p class="item-price">$16.99</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="hidden gifting" src="https://www.rmcf.com/cdn/shop/files/Truffles2_cd9a1f23-ebe8-4be2-ac97-f54728d75aa1.png?v=1722347178" alt="Gifting Image 2">
+                    <p class="item-name">Truffles Delight</p>
+                    <p class="item-price">$22.49</p>
+                </div>
+                <div class="item">
+                    <div class="favorite-icon">
+                        <i class="far fa-heart"></i> 
+                    </div>
+                    <img class="hidden gifting" src="https://www.rmcf.com/cdn/shop/files/Love_Sleeved-RegAssortment2.png?v=1720532416" alt="Gifting Image 3">
+                    <p class="item-name">Love Assortment</p>
+                    <p class="item-price">$25.99</p>
+                </div>
+            </div>
+        </section>
+        <section class="section3">
+            <div class="service">
+                <h1>Our services</h1>
+                <p>We are committed to providing the best service to our customers. Our team is dedicated to ensuring that you have a seamless experience with us.</p>
+            </div>
+            <div class="service-divs">
+                <div class="service-div">
+                    <span class="flaticon-diet"></span>
+                    <div class="media-body">
+                        <h3>Healthy food</h3>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+                <div class="service-div">
+                    <span class="flaticon-delivery"></span>
+                    <div class="delivery">
+                        <h3>Fastest delivery</h3>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+                <div class="service-div">
+                    <span class="flaticon-recipe"></span>
+                    <div class="media-body">
+                        <h3>Healthy food</h3>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We are dedicated to providing the best quality products and services to our customers. Your satisfaction is our priority.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@example.com</p>
+                <p>Phone: +-0000 00000</p>
+                <p>Address: 123 Main Street, City, Country</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script src="./app.js"></script>
+</body>
+</html>
+
