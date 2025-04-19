@@ -48,6 +48,9 @@ nav{
 .wish-img{
     height: 20px;
 }
+.basket-img{
+    height: 15px;
+}
 nav img{
     margin: 0 10px;
 }
@@ -103,6 +106,97 @@ nav img{
     color: #fac564;
 }
 
+
+
+
+
+.item {
+    position: relative;
+    text-align: center;
+}
+
+.add-to-basket {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e5a852;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: none;
+    z-index: 10;
+}
+
+.item:hover .add-to-basket {
+    display: block;
+}
+
+.item img {
+    transition: transform 0.3s ease;
+}
+
+.item:hover img {
+    transform: scale(1.05);
+}
+
+.add-to-basket.active {
+    background-color: #4caf50; /* Yaşıl rəng */
+    color: white;
+    cursor: default;
+}
+
+
+
+
+
+
+.basket-popup h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.basket-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.basket-popup ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+
+.basket-popup img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+
+.basket-popup button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.basket-popup button:hover {
+    background-color: #e60000;
+}
 
 
 
@@ -439,31 +533,19 @@ p{
 
 
 
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.quantity-controls button {
-    background-color: #fac564;
-    color: #fff;
+.favorites-popup button {
+    background-color: #ff4d4d;
+    color: white;
     border: none;
     padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 12px;
     transition: background-color 0.3s ease;
 }
 
-.quantity-controls button:hover {
-    background-color: #e5a852;
-}
-
-.quantity-controls .quantity {
-    font-size: 16px;
-    font-weight: bold;
+.favorites-popup button:hover {
+    background-color: #e60000;
 }
 
 
@@ -549,11 +631,129 @@ footer {
 
 
 
+nav {
+    display: flex;
+    align-items: center;
+    padding: 27px 20px;
+    background-color: #202020;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-divs {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.basket-popup {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 1500;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 250px;
+}
+
+main {
+    padding-top: 80px;
+}
+
+@media (max-width: 576px) {
+    .nav-divs {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .basket-popup {
+        top: 80px;
+        right: 10px;
+        width: 200px;
+    }
+}
 
 
 
 
+.basket-popup {
+    width: 500px; 
+    max-height: 400px;
+    overflow-y: auto;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1500;
+}
 
+.basket-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.basket-popup ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+    width: 100%;
+    overflow: hidden;
+}
+
+.basket-popup img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.basket-popup span {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #333;
+}
+
+.basket-popup button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.basket-popup button:hover {
+    background-color: #e60000;
+}
+
+@media (max-width: 576px) {
+    .basket-popup {
+        width: 90%; 
+        top: 80px;
+        right: 5%;
+    }
+}
 
 
 

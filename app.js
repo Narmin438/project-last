@@ -223,46 +223,229 @@ function updateFavoritesList() {
     const favoritesList = document.getElementById("favorites-list");
     favoritesList.innerHTML = ""; 
 
-    favorites.forEach(fav => {
+    favorites.forEach((fav, index) => {
         const li = document.createElement("li");
+        li.style.display = "flex";
+        li.style.alignItems = "center";
+        li.style.gap = "10px";
+        li.style.marginBottom = "10px";
+
         const img = document.createElement("img");
         img.src = fav.imgSrc;
+        img.style.width = "50px";
+        img.style.height = "50px";
+        img.style.borderRadius = "5px";
+        img.style.objectFit = "cover";
+
         const name = document.createElement("span");
         name.textContent = fav.itemName;
+        name.style.fontSize = "14px";
+        name.style.color = "#555";
 
-        const quantityControls = document.createElement("div");
-        quantityControls.classList.add("quantity-controls");
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.style.backgroundColor = "#ff4d4d";
+        removeButton.style.color = "white";
+        removeButton.style.border = "none";
+        removeButton.style.padding = "5px 10px";
+        removeButton.style.borderRadius = "5px";
+        removeButton.style.cursor = "pointer";
+        removeButton.addEventListener("click", () => {
+            const removedItem = favorites.splice(index, 1)[0];
 
-        const decreaseBtn = document.createElement("button");
-        decreaseBtn.textContent = "-";
-        decreaseBtn.classList.add("decrease-btn");
+            document.querySelectorAll(".favorite-icon").forEach(icon => {
+                const item = icon.parentElement;
+                const imgSrc = item.querySelector("img").src;
+                if (imgSrc === removedItem.imgSrc) {
+                    const heartIcon = icon.querySelector("i");
+                    heartIcon.classList.remove("fas"); 
+                    heartIcon.classList.add("far"); 
+                }
+            });
 
-        const quantity = document.createElement("span");
-        quantity.textContent = "0";
-        quantity.classList.add("quantity");
-
-        const increaseBtn = document.createElement("button");
-        increaseBtn.textContent = "+";
-        increaseBtn.classList.add("increase-btn");
-
-        increaseBtn.addEventListener("click", () => {
-            quantity.textContent = parseInt(quantity.textContent) + 1;
+            updateFavoritesList();
         });
-
-        decreaseBtn.addEventListener("click", () => {
-            const currentQuantity = parseInt(quantity.textContent);
-            if (currentQuantity > 0) {
-                quantity.textContent = currentQuantity - 1;
-            }
-        });
-
-        quantityControls.appendChild(decreaseBtn);
-        quantityControls.appendChild(quantity);
-        quantityControls.appendChild(increaseBtn);
 
         li.appendChild(img);
         li.appendChild(name);
-        li.appendChild(quantityControls);
+        li.appendChild(removeButton);
         favoritesList.appendChild(li);
     });
 }
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const basket = [];
+    const basketImg = document.querySelector(".basket-img");
+    const basketPopup = document.createElement("div");
+    basketPopup.classList.add("basket-popup");
+    basketPopup.style.display = "none";
+    basketPopup.style.position = "fixed";
+    basketPopup.style.top = "70px";
+    basketPopup.style.right = "30px";
+    basketPopup.style.backgroundColor = "#fff";
+    basketPopup.style.border = "1px solid #ccc";
+    basketPopup.style.borderRadius = "8px";
+    basketPopup.style.padding = "15px";
+    basketPopup.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    basketPopup.style.zIndex = "1500";
+    basketPopup.style.maxHeight = "300px";
+    basketPopup.style.overflowY = "auto";
+
+    const closeButton = document.createElement("span");
+    closeButton.textContent = "x";
+    closeButton.style.position = "absolute";
+    closeButton.style.top = "10px";
+    closeButton.style.right = "10px";
+    closeButton.style.cursor = "pointer";
+    closeButton.style.fontSize = "18px";
+    closeButton.style.color = "#333";
+    closeButton.style.fontWeight = "bold";
+    closeButton.addEventListener("click", () => {
+        basketPopup.style.display = "none";
+    });
+    basketPopup.appendChild(closeButton);
+
+    document.body.appendChild(basketPopup);
+
+    document.querySelectorAll(".add-to-basket").forEach((button) => {
+        button.addEventListener("click", () => {
+            if (!button.classList.contains("active")) {
+                button.classList.add("active");
+                button.textContent = "Added!";
+                const item = button.closest(".item");
+                const itemName = item.querySelector(".item-name").textContent;
+                const itemPrice = item.querySelector(".item-price").textContent.replace("$", "");
+                const itemImg = item.querySelector("img").src;
+
+                basket.push({
+                    name: itemName,
+                    price: parseFloat(itemPrice),
+                    img: itemImg,
+                    quantity: 1
+                });
+
+                updateBasketPopup();
+            }
+        });
+    });
+
+    basketImg.addEventListener("click", () => {
+        basketPopup.style.display =
+            basketPopup.style.display === "none" ? "block" : "none";
+    });
+
+    function updateBasketPopup() {
+        basketPopup.innerHTML = "<h3>Basket</h3>";
+        basketPopup.appendChild(closeButton);
+        if (basket.length === 0) {
+            const emptyMessage = document.createElement("p");
+            emptyMessage.textContent = "Your basket is empty.";
+            emptyMessage.style.color = "#555";
+            emptyMessage.style.fontSize = "14px";
+            emptyMessage.style.marginTop = "10px";
+            basketPopup.appendChild(emptyMessage);
+        } else {
+            const ul = document.createElement("ul");
+            basket.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.style.display = "flex";
+                li.style.alignItems = "center";
+                li.style.justifyContent = "space-between";
+                li.style.gap = "10px";
+                li.style.marginBottom = "10px";
+                li.style.width = "100%";
+                li.style.flexWrap = "nowrap";
+    
+                const img = document.createElement("img");
+                img.src = item.img;
+                img.style.width = "50px";
+                img.style.height = "50px";
+                img.style.borderRadius = "5px";
+                img.style.objectFit = "cover";
+    
+                const text = document.createElement("span");
+                text.textContent = `${item.name} - $${(item.price * item.quantity).toFixed(2)}`;
+                text.style.flex = "1";
+                text.style.fontSize = "14px";
+                text.style.color = "#333";
+                text.style.whiteSpace = "nowrap";
+                text.style.overflow = "hidden";
+                text.style.textOverflow = "ellipsis";
+    
+                const quantityControls = document.createElement("div");
+                quantityControls.style.display = "flex";
+                quantityControls.style.alignItems = "center";
+                quantityControls.style.gap = "5px";
+    
+                const decreaseBtn = document.createElement("button");
+                decreaseBtn.textContent = "-";
+                decreaseBtn.style.padding = "5px";
+                decreaseBtn.style.cursor = "pointer";
+                decreaseBtn.addEventListener("click", () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                        updateBasketPopup();
+                    }
+                });
+    
+                const quantity = document.createElement("span");
+                quantity.textContent = item.quantity;
+                quantity.style.fontSize = "14px";
+                quantity.style.fontWeight = "bold";
+                quantity.style.minWidth = "20px";
+                quantity.style.textAlign = "center";
+    
+                const increaseBtn = document.createElement("button");
+                increaseBtn.textContent = "+";
+                increaseBtn.style.padding = "5px";
+                increaseBtn.style.cursor = "pointer";
+                increaseBtn.addEventListener("click", () => {
+                    item.quantity++;
+                    updateBasketPopup();
+                });
+    
+                quantityControls.appendChild(decreaseBtn);
+                quantityControls.appendChild(quantity);
+                quantityControls.appendChild(increaseBtn);
+    
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.style.backgroundColor = "#ff4d4d";
+                removeButton.style.color = "white";
+                removeButton.style.border = "none";
+                removeButton.style.padding = "5px 10px";
+                removeButton.style.borderRadius = "5px";
+                removeButton.style.cursor = "pointer";
+                removeButton.style.flexShrink = "0";
+                removeButton.style.width = "80px";
+                removeButton.addEventListener("click", () => {
+                    const removedItem = basket.splice(index, 1)[0];
+    
+                    document.querySelectorAll(".add-to-basket").forEach(button => {
+                        const item = button.closest(".item");
+                        const imgSrc = item.querySelector("img").src;
+                        if (imgSrc === removedItem.img) {
+                            button.classList.remove("active");
+                            button.textContent = "Add to Basket +";
+                        }
+                    });
+    
+                    updateBasketPopup();
+                });
+    
+                li.appendChild(img);
+                li.appendChild(text);
+                li.appendChild(quantityControls);
+                li.appendChild(removeButton);
+                ul.appendChild(li);
+            });
+            basketPopup.appendChild(ul);
+        }
+    }
+});
+
