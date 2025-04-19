@@ -1,0 +1,109 @@
+.contact-section {
+    background-image: url('https://preview.colorlib.com/theme/pizza/images/bg_4.jpg.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    padding: 50px 20px;
+    color: #fff; 
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .btn {
+    width: 100%;
+    background-color: #fac564;
+    color: #202020;
+    border: none;
+}
+
+
+nav {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    background-color: #202020; 
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+}
+
+.nav-divs {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-divs a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+body {
+    padding-top: 60px; 
+}
+
+
+
+
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #202020;
+    color: rgba(255, 255, 255, 0.7); 
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.footer-section h3 {
+    color: #fac564; 
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background-color: #202020; 
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+@media (max-width: 425px) {
+    .footer-container {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px;
+    }
+
+    .footer-section {
+        text-align: center; 
+        width: 100%;
+    }
+}

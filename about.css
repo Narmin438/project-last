@@ -10,31 +10,32 @@ section {
 
 
 nav {
-    position: fixed; /* Sabit mövqe */
-    top: 0; /* Yuxarıdan sıfır məsafə */
-    left: 0; /* Soldan sıfır məsafə */
-    width: 100%; /* Ekranın tam genişliyi */
-    background-color: #202020; /* Arxa fon rəngi */
-    z-index: 1000; /* Digər elementlərin üstündə görünməsi üçün */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Kölgə effekti */
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    color: #212529;
+    background-color: #202020; 
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-divs {
     display: flex;
-    justify-content: space-between; /* Linkləri sağa və sola yerləşdir */
-    align-items: center; /* Şaquli mərkəzləşdir */
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .nav-divs a {
-    color: #fff; /* Linklərin rəngi */
-    text-decoration: none; /* Alt xətti sil */
-    margin: 0 10px; /* Linklər arasında boşluq */
-    font-size: 16px; /* Mətn ölçüsü */
-    transition: color 0.3s ease; /* Rəng dəyişimi üçün keçid */
+    color: #fff; 
+    text-decoration: none;
+    margin: 0 10px; 
+    font-size: 16px; 
+    transition: color 0.3s ease; 
 }
 
 .nav-divs a:hover {
-    color: #fac564; /* Hover zamanı rəng */
+    color: #fac564; 
 }
 
 
@@ -452,7 +453,24 @@ footer {
 
 
 
+.nav-divs a{
+    font-weight: bold;
+}
 
 
 
 
+
+@media (max-width: 768px) {
+    .nav-divs {
+        flex-direction: row; 
+        justify-content: flex-end; 
+        align-items: center;
+        gap: 10px; 
+        padding: 10px 20px;
+    }
+
+    .nav-divs a {
+        font-size: 14px; 
+    }
+}

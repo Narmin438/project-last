@@ -884,3 +884,48 @@ main {
 }
 
 
+
+
+
+.nav-divs a{
+    font-weight: bold;
+}
+
+
+
+
+@media (max-width: 320px) {
+    nav {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 10px 15px; 
+    }
+
+    .nav-divs {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 10px; 
+        width: 100%; 
+    }
+
+    .nav-divs a {
+        font-size: 12px; 
+        text-align: center; 
+    }
+
+    .basket-img {
+        height: 18px; 
+        vertical-align: middle; 
+    }
+
+    nav img {
+        margin: 0 5px; 
+    }
+
+    .images{
+        display: flex;
+    }
+}
